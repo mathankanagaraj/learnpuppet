@@ -42,23 +42,11 @@
 #
 # Copyright 2017 Your name here, unless otherwise noted.
 #
-
-$var4 = "I am global variable"
-class users ($var3) {
+class users {
     $var = 'Hallo I am variable'
     file { '/root/f1.txt':
         ensure => present,
         content => "What is the var says in double quotes: $var \n",
     }
 
-    file { '/root/f3.txt':
-        ensure => present,
-        content => "What is the var from class resource : $var3 \n",
-    }
-
-    $var4 = '\"I am local variable to class\"'
-    file { '/root/f4.txt':
-        ensure => present,
-        content => "What is the var : $var4 and $::var4",
-    }
 }
